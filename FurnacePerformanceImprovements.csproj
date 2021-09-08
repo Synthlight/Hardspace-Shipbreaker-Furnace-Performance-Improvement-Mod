@@ -1,74 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63DA106D-E9C5-488A-8B44-10D178B7CE03}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FurnacePerformanceImprovements</RootNamespace>
-    <AssemblyName>FurnacePerformanceImprovements</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BBI.Unity.Game">
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\BBI.Unity.Game.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BepInEx">
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Entities, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\Unity.Entities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Patches\FurnaceVolumePatch.cs" />
-    <Compile Include="Plugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetName).dll" "C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\"
-copy "$(TargetDir)$(TargetName).pdb" "C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\"</PostBuildEvent>
-  </PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<Platforms>x64</Platforms>
+		<Version>1.0.0.0</Version>
+		<Copyright>Copyright © 2020</Copyright>
+		<Authors>Gregory</Authors>
+		<Company>None</Company>
+		<RootNamespace>FurnacePerformanceImprovements</RootNamespace>
+		<DebugType>full</DebugType>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\0Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\Assembly-CSharp.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BBI.Unity.Core">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\BBI.Unity.Core.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BBI.Unity.Game.Data">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\BBI.Unity.Game.Data.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BBI.Unity.Game">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\publicized_assemblies\BBI.Unity.Game_publicized.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BepInEx">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BepInEx.Harmony">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Entities">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\Unity.Entities.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\UnityEngine.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\UnityEngine.UI.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\&quot;&#xD;&#xA;copy &quot;$(TargetDir)$(TargetName).pdb&quot; &quot;C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\&quot;"/>
+	</Target>
 </Project>

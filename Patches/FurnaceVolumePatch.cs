@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Reflection;
+﻿using System.Reflection;
 using BBI.Unity.Game;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -12,7 +11,7 @@ namespace FurnacePerformanceImprovements.Patches {
         [HarmonyTargetMethod]
         [UsedImplicitly]
         public static MethodBase TargetMethod() {
-            return typeof(FurnaceVolume).GetMethod("HandlePositiveSalvage", BindingFlags.NonPublic | BindingFlags.Instance);
+            return typeof(FurnaceVolume).GetMethod(nameof(FurnaceVolume.HandlePositiveSalvage), BindingFlags.NonPublic | BindingFlags.Instance);
         }
 
         [HarmonyPrefix]
@@ -23,14 +22,8 @@ namespace FurnacePerformanceImprovements.Patches {
             return false;
         }
 
-        private static MethodInfo destroyPartMethod;
-
         public static void InvokeDestroy(FurnaceVolume __instance, EntityManager entityManager, Entity entity, StructurePart part) {
-            if (destroyPartMethod == null) {
-                destroyPartMethod = typeof(FurnaceVolume).GetMethod("DestroyPart", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
-            }
-
-            var destroyPartResult = (IEnumerator) destroyPartMethod.Invoke(__instance, new object[] {Main.Instance.MainSettings.SalvageSettings.ObjectDestructionDelay, part, entityManager, entity});
+            var destroyPartResult = __instance.DestroyPart(Main.Instance.MainSettings.SalvageSettings.ObjectDestructionDelay, part, entityManager, entity);
             __instance.StartCoroutine(destroyPartResult);
         }
     }
@@ -41,7 +34,7 @@ namespace FurnacePerformanceImprovements.Patches {
         [HarmonyTargetMethod]
         [UsedImplicitly]
         public static MethodBase TargetMethod() {
-            return typeof(FurnaceVolume).GetMethod("HandleNegativeSalvage", BindingFlags.NonPublic | BindingFlags.Instance);
+            return typeof(FurnaceVolume).GetMethod(nameof(FurnaceVolume.HandleNegativeSalvage), BindingFlags.NonPublic | BindingFlags.Instance);
         }
 
         [HarmonyPrefix]
