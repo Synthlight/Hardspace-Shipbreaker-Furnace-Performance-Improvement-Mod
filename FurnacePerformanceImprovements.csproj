@@ -17,6 +17,14 @@
 			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\0Harmony.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
+		<Reference Include="BepInEx">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BepInEx.Harmony">
+			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="Assembly-CSharp">
 			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\Assembly-CSharp.dll</HintPath>
 			<Private>false</Private>
@@ -31,14 +39,6 @@
 		</Reference>
 		<Reference Include="BBI.Unity.Game">
 			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\Shipbreaker_Data\Managed\publicized_assemblies\BBI.Unity.Game_publicized.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="BepInEx">
-			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="BepInEx.Harmony">
-			<HintPath>C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\core\BepInEx.Harmony.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
 		<Reference Include="Unity.Entities">
