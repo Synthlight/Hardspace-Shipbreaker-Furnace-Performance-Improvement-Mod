@@ -59,6 +59,6 @@
 		</Reference>
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\&quot;&#xD;&#xA;copy &quot;$(TargetDir)$(TargetName).pdb&quot; &quot;C:\SteamLibrary\common\Hardspace Shipbreaker\BepInEx\plugins\&quot;"/>
+		<Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;R:\Games\Hardspace Shipbreaker\Sync\BepInEx\plugins\&quot;&#xD;&#xA;copy &quot;$(TargetDir)$(TargetName).pdb&quot; &quot;R:\Games\Hardspace Shipbreaker\Sync\BepInEx\plugins\&quot;"/>
 	</Target>
 </Project>
